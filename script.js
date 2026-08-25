@@ -14,3 +14,31 @@ form.addEventListener('submit',event=>{event.preventDefault();let valid=true;for
 form.querySelectorAll('input,select').forEach(field=>field.addEventListener('input',()=>field.closest('label').classList.remove('invalid')));
 document.getElementById('year').textContent=new Date().getFullYear();
 document.querySelector('.back-to-top').addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+
+const serviceMapElement=document.getElementById('service-map');
+if(serviceMapElement&&window.L){
+  const houston=[29.7604,-95.3698];
+  const serviceMap=L.map(serviceMapElement,{center:houston,zoom:9.5,zoomSnap:.5,minZoom:8,maxZoom:16,scrollWheelZoom:true});
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{
+    maxZoom:19,
+    attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+  }).addTo(serviceMap);
+  L.circle(houston,{
+    radius:40000,
+    color:'#f2b631',
+    weight:2,
+    opacity:.88,
+    fillColor:'#1e5aa8',
+    fillOpacity:.2,
+    interactive:false
+  }).addTo(serviceMap);
+  const serviceMarker=L.divIcon({
+    className:'excell-map-marker',
+    html:'<span aria-hidden="true"></span>',
+    iconSize:[30,30],
+    iconAnchor:[15,15]
+  });
+  L.marker(houston,{icon:serviceMarker,title:'Excell Solutions — Houston, Texas',alt:'Excell Solutions service location in Houston, Texas'})
+    .addTo(serviceMap)
+    .bindPopup('<strong>Excell Solutions</strong><br>Houston, Texas &amp; Surrounding Areas');
+}

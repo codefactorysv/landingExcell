@@ -33,6 +33,12 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
     <link rel="stylesheet" href="styles.css" />
     <script type="application/ld+json">
       {
@@ -388,18 +394,12 @@
             </div>
           </div>
           <div class="map-card reveal">
-            <iframe
-              src="https://www.openstreetmap.org/export/embed.html?bbox=-96.1%2C29.2%2C-94.65%2C30.3&amp;layer=mapnik&amp;marker=29.7604%2C-95.3698"
-              title="Map centered on Houston, Texas"
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-              allowfullscreen
-            ></iframe>
-            <div class="coverage-overlay" aria-hidden="true">
-              <span class="coverage-ring coverage-ring-outer"></span>
-              <span class="coverage-ring coverage-ring-inner"></span>
-              <span class="coverage-core"></span>
-            </div>
+            <div
+              id="service-map"
+              class="service-map"
+              role="region"
+              aria-label="Interactive map showing the Excell Solutions service area around Houston, Texas"
+            ></div>
             <div class="map-location" aria-hidden="true">
               <span><svg viewBox="0 0 24 24"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
               <p><strong>Houston, Texas</strong>General Service Area</p>
@@ -557,6 +557,11 @@
     <div class="mobile-actions">
       <a href="tel:8325829387">Call Now</a><a href="#contact">Free Estimate</a>
     </div>
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
     <script src="script.js"></script>
   </body>
 </html>
