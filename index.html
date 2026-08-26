@@ -478,7 +478,8 @@
               </div>
             </div>
           </div>
-          <form class="estimate-form reveal" novalidate>
+          <form class="estimate-form reveal" id="estimate-form" novalidate>
+            <label class="form-honeypot" aria-hidden="true">Company website<input name="company" type="text" tabindex="-1" autocomplete="off" /></label>
             <div class="form-row">
               <label
                 >Name <b>*</b
@@ -509,8 +510,21 @@
                   placeholder="you@example.com"
                 /><small>Please enter a valid email.</small></label
               ><label
-                >Type of Cleaning Needed <b>*</b
-                ><select name="service" required>
+                >ZIP Code <b>*</b
+                ><input
+                  name="zip"
+                  type="text"
+                  inputmode="numeric"
+                  autocomplete="postal-code"
+                  maxlength="10"
+                  placeholder="77002"
+                  required
+                /><small>Please enter a valid ZIP code.</small></label
+              >
+            </div>
+            <label
+              >Type of Cleaning Needed <b>*</b
+              ><select name="service" required>
                   <option value="">Select a service</option>
                   <option>Residential Cleaning</option>
                   <option>Deep Cleaning</option>
@@ -520,9 +534,8 @@
                   <option>Bathroom Cleaning</option>
                   <option>Move-In / Move-Out Cleaning</option>
                   <option>Other</option></select
-                ><small>Please select a service.</small></label
-              >
-            </div>
+              ><small>Please select a service.</small></label
+            >
             <label
               >Message<textarea
                 name="message"
